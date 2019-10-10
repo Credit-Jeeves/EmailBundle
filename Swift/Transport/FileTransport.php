@@ -4,7 +4,7 @@ namespace Ton\EmailBundle\Swift\Transport;
 use Swift_Transport_MailInvoker;
 use Swift_Events_EventDispatcher;
 use Swift_Events_EventListener;
-use Swift_Mime_Message;
+use Swift_Mime_SimpleMessage;
 use Swift_Transport;
 use Exception;
 use Ton\EmailBundle\EmailReader;
@@ -40,6 +40,14 @@ class FileTransport implements Swift_Transport
     {
         $this->invoker = $invoker;
         $this->eventDispatcher = $eventDispatcher;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function ping()
+    {
+        return true;
     }
 
     /**
@@ -85,7 +93,7 @@ class FileTransport implements Swift_Transport
      *
      * @return int
      */
-    public function send(Swift_Mime_Message $message, &$failedRecipients = null)
+    public function send(Swift_Mime_SimpleMessage $message, &$failedRecipients = null)
     {
         $failedRecipients = (array)$failedRecipients;
 

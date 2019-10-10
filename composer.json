@@ -12,9 +12,9 @@
     ],
 
     "require": {
-        "php":                          ">=5.3.3",
-        "symfony/framework-bundle":     "~2.2",
-        "symfony/swiftmailer-bundle":   "~2.2",
+        "php":                          "^7.1.3",
+        "symfony/framework-bundle":     "^4.3",
+        "symfony/swiftmailer-bundle":   "^3.2",
         "zendframework/zend-mail":      "~2.1"
     },
 
