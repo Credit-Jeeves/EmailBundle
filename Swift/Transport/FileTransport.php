@@ -1,7 +1,6 @@
 <?php
 namespace Ton\EmailBundle\Swift\Transport;
 
-use Swift_Transport_MailInvoker;
 use Swift_Events_EventDispatcher;
 use Swift_Events_EventListener;
 use Swift_Mime_SimpleMessage;
@@ -33,10 +32,10 @@ class FileTransport implements Swift_Transport
     /**
      * Create a new FileTransport with the $log.
      *
-     * @param Swift_Transport_MailInvoker  $invoker
+     * @param \Swift_Transport_StreamBuffer  $invoker
      * @param Swift_Events_EventDispatcher $eventDispatcher
      */
-    public function __construct(Swift_Transport_MailInvoker $invoker, Swift_Events_EventDispatcher $eventDispatcher)
+    public function __construct(\Swift_Transport_StreamBuffer $invoker, Swift_Events_EventDispatcher $eventDispatcher)
     {
         $this->invoker = $invoker;
         $this->eventDispatcher = $eventDispatcher;

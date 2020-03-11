@@ -4,11 +4,12 @@ parameters:
     ton.email_bundle.email_reader.class: Ton\EmailBundle\EmailReader
 
 services:
+    _defaults: { public: true }
     ton.email_bundle.swift.file_transport:
         class: "%ton.email_bundle.swift.file_transport.class%"
         calls:
             - [setDir, ["%ton.email_bundle.dir%"]]
-    swiftmailer.mailer.transport.file:
+    swiftmailer.mailer.default.transport.null:
         alias: ton.email_bundle.swift.file_transport
     ton.email_bundle.email_reader:
         class: "%ton.email_bundle.email_reader.class%"
