@@ -13,7 +13,7 @@ class FileTransport extends Base
     {
         call_user_func_array(
             array($this, '\\Ton\\EmailBundle\\Swift\\Transport\\FileTransport::__construct'),
-            Swift_DependencyContainer::getInstance()->createDependenciesFor('transport.mail')
+            Swift_DependencyContainer::getInstance()->createDependenciesFor('transport.sendmail')
         );
     }
 
